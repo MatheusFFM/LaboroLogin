@@ -1,0 +1,152 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    }
+    
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 70px 100px 630px 1fr;
+    grid-template-columns: 300px 1fr 1fr;
+    grid-template-areas: "cabecalho cabecalho cabecalho"
+                        ". Imagem ."
+                        ". imagem Campo"
+                        ". . ."
+}
+
+.Imagem{
+    height: 100%;
+    grid-area: imagem;
+    margin: 0 0 30% 0;
+}
+
+.Cabecalho{
+    background-color: aqua;
+    grid-area: cabecalho;
+}
+
+.Campo{
+    display: grid;
+    margin: 6% 20% 0 0;
+    grid-area: Campo;
+    grid-template-rows: 50px 10px 50px 10px 50px 10px 50px 10px 50px 50px;
+    grid-template-columns: 1fr;
+    grid-template-areas:"Email"
+                        "."
+                        "nome"
+                        "."
+                        "senha"
+                        "."
+                        "confirma"
+                        "."
+                        "Enviar"
+                        "Registrar"
+
+}
+
+.Campo input{
+    display: block;
+}
+
+.Nome{
+    font-size: 1.7em;
+    grid-area: nome;
+    width: 75%;
+    text-align: center;
+    border-radius: 0.2em;
+    border-style: solid;
+    border-color: #919191;
+}
+
+.Confirmar{
+    font-size: 1.7em;
+    grid-area: confirma;
+    width: 75%;
+    text-align: center;
+    border-radius: 0.2em;
+    border-style: solid;
+    border-color: #919191;
+}
+
+.Email{
+    font-size: 1.7em;
+    grid-area: Email;
+    width: 75%;
+    text-align: center;
+    border-radius: 0.2em;
+    border-style: solid;
+    border-color: #919191;
+}
+
+
+.Registrar{
+    font-size: 1.7em;
+    grid-area: Registrar;
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    margin: 0 8%;
+    border-style: solid;
+    border-radius: 0.2em;
+    border-color: #919191;
+}
+
+.Senha{
+    font-size: 1.7em;
+    grid-area: senha;
+    width: 75%;
+    text-align: center;
+    border-radius: 0.2em;
+    border-style: solid;
+    border-color: #919191;
+}
+
+.Enviar{
+    font-size: 1.7em;
+    grid-area: Enviar;
+    width: 60%;
+    text-align: center;
+    margin: 0 8%;
+    border-style: solid;
+    border-radius: 0.2em;
+    border-color: #919191;
+}
+
+.Enviar:hover{
+    background-color: #1B3163;
+    color: azure;
+}
+
+.Registrar:hover{
+    background-color: #FBB95B;
+    color: azure;
+}
+
+.Cabecalho{
+    position: fixed;
+    width: 100%;
+    grid-area: cabecalho;
+    background-color: 	#FEFEFE;
+    border-color: #919191;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+}
+.tampa:hover{
+    color: #FBB95B;
+}
+
+.Logo{
+    margin-left:2rem;
+}
+

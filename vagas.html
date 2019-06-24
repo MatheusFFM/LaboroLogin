@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/Imagem/logo.jpeg">
+    <title>Laboro</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="vagascss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="perfis.js"></script>
+
+</head>
+
+<body onload="exibeVagas()">
+    <header>
+        <a href="Default.html"> <img src="/Imagem/logo2.jpeg" alt="logo laboro" class="logotipo"> </a>
+        <nav>
+            <ul>
+                <li><a id="Cadastrar" href="login.html">Cadastrar vagas</a></li>
+                <li><a id="Perfil" href="login.html">Entrar</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="grid">
+            <section class="filtro shadow1 ">
+                <label for="buscaPorcidade" placeholder="Nome da cidade">Filtrar</label>
+                <input type="text" id="buscaPorCidade">
+            </section>
+
+            <main class="cards-view shadow1 border-radius1" id="main">
+                <article class="card shadow1">
+
+                    <h3>Cargo: Estágio em Desenvolvimento</h3>
+                    <h3>Empresa: Nike</h3>
+                    <p>Data de publicação: 05/05/2019</p>
+                    <p id="cidadesID">Cidade: Belo Horizonte</p>
+                </article>
+
+                <article class="card shadow1">
+
+                    <h3>Cargo: Desenvolvedor Java</h3>
+                    <h3>Empresa: Springles</h3>
+                    <p>Data de publicação: 04/05/2019</p>
+                    <p id="cidadesID">Cidade: Belo Horizonte</p>
+                </article>
+
+                <article class="card shadow1">
+
+                    <h3>Cargo: Desenvolvedor NODE</h3>
+                    <h3>Empresa: FuBank</h3>
+                    <p>Data de publicação: 06/05/2019</p>
+                    <p id="cidadesID">Cidade: Belo Horizonte</p>
+                </article>
+
+                <article class="card shadow1">
+
+                    <h3>Cargo: Desenvolvedor NODE</h3>
+                    <h3>Empresa: FuBank</h3>
+                    <p>Data de publicação: 06/05/2019</p>
+                    <p id="cidadesID">Cidade : Belo Horizonte</p>
+                </article>
+            </main>
+            <aside class="card-detail shadow1" id="aside">
+                <div class="details shadow1 border-radius1">
+                    <img src="" alt="" srcset="">
+                    Clique em um card para expandir.
+                    <!-- <h2>Cargo: Desenvolvedor NODE</h2>
+                    <h2>Empresa: FuBank</h2>
+                    <h4>Cidade: Belo Horizonte</h4>
+                    <h4>Descrição da Vaga:</h4>
+                    <p>Desenvolvedor nodejs Atuará com desenvolvimento de sistemas utilizando NODEJS, analise e solução
+                        de problemas, atuar em um projeto de uma Startup.
+                        Beneficios: A Combinar;
+                        Formação Acadêmica: cursando algo relacionado a computação.
+                        Experiência: Não é necessário.
+                        Salário: A combinar
+                        Cargo: Estágio em desenvolvimento sistemas
+                        Empresa: FuBank
+                        Ramo: Informática/ Tecnologia
+                        Envie seu currículo e garanta sua nova vaga agora mesmo!</p>
+                    <h2>Requisitos:</h2>
+                    <p>algum conhecimento em NODE.</p>
+                    <h3>Data de Publicação</h3>
+                    <p>06/05/2019</p>
+                    <h3>Email de contato: rh@fubank.com.br</h3> -->
+
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="fakedb.js"></script>
+
+    <script>
+        function exibeVagas(dbjs) {
+            let texto = '';
+            if (!dbjs) dbjs = JSON.parse(localStorage.getItem('db'));
+            if (!dbjs) {
+                dbjs = dbfake;
+            };
+            i = 0;
+            dbjs.data.forEach(vaga => {
+                texto += `<article class="card shadow1" onclick="mostrarVaga(${vaga.id})">                  
+                  <h3>Cargo: ${vaga.cargo}</h3>
+                  <h3>Empresa: ${vaga.empresa}</h3>
+                  <p>Data de publicação: ${vaga.Dia}</p>
+                  <p id="cidadesID">Cidade: ${vaga.endereco}</p>
+              </article>`;
+            });
+            document.getElementById('main').innerHTML = texto;
+        }
+        function mostrarVaga(id) {
+            textoaside = `  <div class="details shadow1 border-radius1">
+          <img src="" alt="" srcset="">
+          <h2>Cargo: ${db.data[id].cargo}</h2>
+          <h2>Empresa: ${db.data[id].empresa}</h2>
+          <h4>Cidade: ${db.data[id].endereco}</h4>
+          <h4>Descrição da Vaga:</h4>
+          <p>${db.data[id].Descricao}</p>
+          <h2>Requisitos:</h2>
+          <p>${db.data[id].Requisitos}</p>
+          <h3>Data de Publicação</h3>
+          <p>${db.data[id].Dia}</p>
+          <h3>Email de contato: ${db.data[id].email}</h3>
+      </div> `
+            document.getElementById('aside').innerHTML = textoaside;
+        }
+        function filtraVagas() {
+            let filtro = document.getElementById('buscaPorCidade').value.toUpperCase();
+            let dbjs = JSON.parse(localStorage.getItem('db'));
+            let datadb = dbjs.data;
+            let dbFiltrado = datadb.filter(function (vaga) { return vaga.endereco.toUpperCase().includes(filtro) || vaga.cargo.toUpperCase().includes(filtro) || vaga.email.toUpperCase().includes(filtro) })
+            exibeVagasfiltrado(dbFiltrado);
+        }
+        function exibeVagasfiltrado(db) {
+            let texto = '';
+            db.forEach(vaga => {
+                texto += `<article class="card shadow1" onclick="mostrarVaga()" id="1">                  
+                  <h3>Cargo: ${vaga.cargo}</h3>
+                  <h3>Empresa: ${vaga.empresa}</h3>
+                  <p>Data de publicação: ${vaga.Dia}</p>
+                  <p id="cidadesID">Cidade: ${vaga.endereco}</p>
+              </article>`;
+            });
+            document.getElementById('main').innerHTML = texto;
+        }
+        //input element
+        let buscaPorCidade = document.getElementById('buscaPorCidade');
+        // Event Listener
+        buscaPorCidade.addEventListener('keyup', filtraVagas);
+    </script>
+</body>
+
+</html>
