@@ -140,7 +140,7 @@
         function exibeVagasfiltrado(db) {
             let texto = '';
             db.forEach(vaga => {
-                texto += `<article class="card shadow1" onclick="mostrarVaga()" id="1">                  
+                texto += `<article class="card shadow1" onclick="mostrarVaga(${vaga.id})" id="1">                  
                   <h3>Cargo: ${vaga.cargo}</h3>
                   <h3>Empresa: ${vaga.empresa}</h3>
                   <p>Data de publicação: ${vaga.Dia}</p>
