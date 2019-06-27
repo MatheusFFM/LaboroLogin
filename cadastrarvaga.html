@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laboro</title>
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+<link rel="stylesheet" href="./stylesheets/cadastrarvagacss.css">
+<body>
+        <header>
+                <img class="p-2 logotipo" src="./assets/logo.svg" alt="" srcset="">
+                <nav>
+                    <ul>
+                        <li><a href="./vagas.html">Encontrar vagas</a></li>
+                        <li><a href="./cadastrarvaga.html">Cadastrar vagas</a></li>
+                        <li><a href="./home.html">Entrar</a></li>
+                    </ul>
+                </nav>
+        </header>
+        <div class="wrapper">
+
+            <div class="grid">
+                    <div id="card-view" class="vagas-cadastradas shadow1  p-2">
+                            <h4>Suas Vagas</h4>
+                            
+                        </div>
+                        <div class="cadastro-form shadow1 p-2">
+                                <form id="vagas-form" class="form-group">
+                                    <div class="form-group col-md-6">
+                                        <label for="cargo">Cargo</label>
+                                        <input type="text" id="cargo" 
+                                        class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="empresa">Empresa</label>
+                                        <input type="text" id="empresa" 
+                                        class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                            <label for="email">Email</label>
+                                            <input type="text" id="email" 
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                            <label for="descricao">Descrição</label>
+                                            <input type="text" id="descricao" 
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                            <label for="requisitos">Requisitos</label>
+                                            <input type="text" id="requisitos" 
+                                            class="form-control">
+                                    </div>
+
+                                    <input id='editar-vaga' type="hidden" value="Editar" 
+                                    class="btn btn-success col-md-3 ml-2 edita-vaga">
+
+                                    <input id='submit-vaga' type="submit" value="Adicionar" 
+                                    class="adiciona-vaga btn btn-primary col-md-3 ml-2">
+                                </form>
+                            </div>
+                            <img src="./assets/jaquetaAmarelaMulher.svg" class="mulherjaqueta">
+                            <div class="perfil shadow1 p-4">
+                                    <spam> Você pode editar ou deletar suas vagas.</spam>
+                                
+                                     
+                                </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="./scripts/cadastravaga.js"></script>
+    
+</body>
+</html>

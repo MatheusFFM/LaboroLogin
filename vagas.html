@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laboro</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="./stylesheets/vagascss.css">
+    
+</head>
+
+<body>
+    <header>
+        <img src="./assets/logo.svg" alt="logo laboro" class="logotipo">
+            <nav>
+                <ul>
+                    <li><a href="./vagas.html">Encontrar vagas</a></li>
+                    <li><a href="./cadastrarvaga.html">Cadastrar vagas</a></li>
+                    <li><a href="./home.html">Entrar</a></li>
+                </ul>
+                
+            </nav>
+    </header>
+    <div class="wrapper">
+        <div class="grid">
+            <section class="filtro shadow1 ">
+                <label for="busca-por-cidade">Filtre por cargo</label>
+                <input id="filtroInput" type="text" name="busca-por-cidade">
+               
+            </section>
+    
+            <main id="card-list" class="cards-view shadow1 border-radius1">
+
+            
+            </main>
+            <aside  class="card-detail shadow1">
+                <div id="card-detail" class="details shadow1 border-radius1">
+                    <h2 id="textosemvaga">Clique em detalhes para expandir uma vaga.</h2>
+                    <h2 id="cargo-detalhe"></h2>
+                    <h2 id="empresa-detalhe"></h2>
+                    <h3 id="descricao-detalhe"></h3>
+                    <h3 id="requisitos-detalhe"></h3>
+                    <h3 id="email-detalhe"></h3>
+
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    
+    <script src="./scripts/vagas.js"></script>
+</body>
+</html>

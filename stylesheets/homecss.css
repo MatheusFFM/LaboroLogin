@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+ul, li, a{
+    text-decoration: none;
+    color: black;
+    list-style: none;
+}
+header{
+    height: 12vh;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+    display:flex;
+    justify-content: space-between ;
+    align-items: center;
+}
+.logotipo{
+    margin-left:2rem;
+}
+nav > ul{
+   display: flex;
+   justify-content: space-between;
+   margin-right: 1rem;
+   
+}
+ul > li {
+    padding-left:1rem;
+}
+.grid{
+    height: 100%;
+    display: grid;
+    
+     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 42% 40% 50% 22%;
+    grid-template-areas: 
+    "hero-block--white hero-block--orange"
+    "sobre sobre-svg"
+    "section-cards section-cards"
+    "footer footer";
+}
+.hero-block--white{
+    grid-area: hero-block--white;
+    display: flex;
+    background: white;
+
+}
+.hero-text{
+    align-self: center;
+    
+    width:60%;
+    margin-left: 20%;
+}
+.hero-block--orange{
+    grid-area: hero-block--orange;
+    display: block;
+    background: #FAB95B;
+    color: white;
+}
+.hero-block--orange > p{
+    text-align: center;
+    margin-top: 20%;
+}
+.hero-mulherdejaqueta--svg > img{
+    position: absolute;
+    top: 15vh;
+    right: 40%;
+    height: 59vh;
+  
+}
+.sobre{
+grid-area: sobre;
+background: #1A3263;
+color: white;
+padding: 5em;
+}
+
+.sobre-svg{
+    height: auto;
+    background: #5C63AB;
+    grid-area: sobre-svg;
+    display: flex;
+    justify-content: center;
+    
+}
+.sobre-svg > img{
+    height: 40vh;
+    align-self: center;
+}
+.section-cards{
+    grid-area: section-cards;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+   
+    
+    
+
+}
+.card-estudante{
+    -webkit-box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    margin-top:10%;
+    height: 250px;
+    width: 250px;
+    justify-self: center;
+    border-radius: 5px;
+  
+}
+.card-estudante > img{
+    position: relative;
+    left: 10%;
+    top: -2em;
+    height: 20vh;
+}
+.card-estudante > p{
+    text-align: center;
+}
+.cta-estudante{
+    
+    border-radius: 5px;
+    background: #FAB95B;
+    padding: 0.5rem;
+    margin-left:3rem;
+}
+.cta-empresa{
+    text-align: center;
+    border-radius: 5px;
+    background: #1A3263;
+    padding: 0.5rem;
+    margin-left: 3rem;
+    color: white;
+    
+}
+.card-empresa{
+    -webkit-box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    margin-top:10%;
+    height: 250px;
+    width: 250px;
+    justify-self: center;
+    border-radius: 5px;
+}
+.card-empresa > p{
+    width: 100%;
+    text-align: center;
+}
+.card-empresa > img{
+    position: relative;
+    left: 20%;
+    top: -2em;
+  
+    height: 20vh;
+}
+footer{
+    grid-area: footer;
+    background: #1A3263;
+}
