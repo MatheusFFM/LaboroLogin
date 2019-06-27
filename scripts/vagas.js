@@ -73,29 +73,30 @@ document.addEventListener('DOMContentLoaded', UI.displayVagas);
 document.querySelector('#card-list').addEventListener('click', UI.detalhes());
 
 // Filter
-// Get input element
+// Valor dentro do filtro
 let filtroInput = document.getElementById('filtroInput');
 
 //Evento keyup
 filtroInput.addEventListener('keyup', filtrarVaga);
 
 function filtrarVaga(){
-    // Get value of input
+    
     let valorInput = document.getElementById('filtroInput').value.toUpperCase();
 
-    // Get names ul
+    
     let main = document.getElementById('card-list');
-    // Get lis from ul
+    
     let listaDeCargo = main.querySelectorAll('h3#cargo');
-
-    // Loop through collection-item lis
+    let cards = main.querySelectorAll('article.card');
+    
+    
     for(let i = 0;i < listaDeCargo.length;i++){
     let h3 = listaDeCargo[i].innerHTML;
-    // If matched
+    
     if(h3.toUpperCase().indexOf(valorInput) > -1){
-        listaDeCargo[i].style.display = '';
+        cards[i].style.display = '';
     } else {
-        listaDeCargo[i].style.display = 'none';
+        cards[i].style.display = 'none';
     }
     }
 

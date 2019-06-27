@@ -136,8 +136,7 @@ document.querySelector('#vagas-form').addEventListener('submit', (e) =>{
                 
                 UI.clearForm();
     
-                //document.querySelector('#submit-vaga').setAttribute('type','submit');
-                //document.querySelector('#editar-vaga').setAttribute('type','hidden');
+                
     }
 
 });
@@ -147,6 +146,7 @@ document.querySelector('#card-view').addEventListener('click', (e)=>{
     if(e.target.classList.contains('editar')){
         let vagas = Store.getVagas();
         let id = e.target.previousElementSibling.getAttribute('value');
+        var card = e.target.parentElement;
         let vagaEditavel = vagas.find(vaga => vaga.id = id);
         document.querySelector('#cargo').value = vagaEditavel.cargo;
         document.querySelector('#empresa').value = vagaEditavel.empresa;
@@ -157,13 +157,35 @@ document.querySelector('#card-view').addEventListener('click', (e)=>{
         document.querySelector('#submit-vaga').setAttribute('type','hidden');
         document.querySelector('#editar-vaga').setAttribute('type','submit');
 
-        let vagaseditadas = vagas.map((v) => {
-            if(v.id == id){
-                
-                v.cargo = "cargo editado";
-            }
-        });
-        console.log(vagaseditadas);
+        document.querySelector('#editar-vaga').addEventListener('click', (e)=>{
+            
+            const cargo =  document.querySelector('#cargo').value;
+            const empresa =  document.querySelector('#empresa').value;
+            const email =  document.querySelector('#email').value;
+            const descricao =  document.querySelector('#descricao').value;
+            const requisitos =  document.querySelector('#requisitos').value;
+            let filhos = card.childNodes;
+            filhos[0].innerHTML = `Cargo: ${cargo}`;
+            filhos[1].innerHTML = `Empresa: ${empresa}`;
+            filhos[2].innerHTML = `Email: ${email}`;
+
+            let vagaseditadas = vagas.map((v) => {
+                if(v.id == id){
+                    
+                    v.cargo = cargo;
+                    v.empresa = empresa;
+                    v.email = email;
+                    v.descricao = descricao;
+                    v.requisitos = requisitos;
+                    return v;
+                }
+            });
+            document.querySelector('#submit-vaga').setAttribute('type','submit');
+            document.querySelector('#editar-vaga').setAttribute('type','hidden');
+
+            UI.clearForm();
+        })
+
        
         
         
